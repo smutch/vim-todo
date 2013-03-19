@@ -18,4 +18,15 @@ else
   let b:undo_ftplugin = "setl cms< com< fo< flp<"
 endif
 
+function! todo#ToggleDone()
+    let linenum = line(".")
+    if getline(linenum) =~ '^.*@done.*$'
+      echo "True"
+      execute ":".linenum."s/\s*\@done//g"
+    else
+      execute ":".linenum."s/$/ \@done/g"
+    endif
+endfunction
+
+
 " vim:set sw=2:
