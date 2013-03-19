@@ -21,7 +21,6 @@ endif
 function! todo#ToggleDone()
     let linenum = line(".")
     if getline(linenum) =~ '^.*@done.*$'
-      echo "True"
       execute ":".linenum."s/\s*\@done//g"
     else
       execute ":".linenum."s/$/ \@done/g"
